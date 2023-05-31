@@ -1,0 +1,158 @@
+<!--pages/stupicture/stupicture.wxml-->
+
+<page-meta root-font-size="system"/>
+<block wx:if="{{bindflag}}">
+<view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
+  <view class="identity-content">
+    <view class="additional-control">慧学服务</view>
+    <image class="identity-icon" src="../../icons/mine.png" style="width: 25px; height: 25px;"></image>
+    <text class="identity-text">{{identity.text}}</text>  
+  </view>
+	<!-- <view class="weui-form"> -->
+		<!-- <view class="weui-form__control-area"> -->
+			<view class="weui-cells__group weui-cells__group_form">
+				<view class="weui-cells">
+
+					<view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+						<view class="weui-cell__hd">
+              <picker aria-role="combobox" bindchange="bindSchoolChange" range="{{schoolarray}}">
+							  <label class="weui-label" style="width: 4em;">学校</label>
+              </picker>
+						</view>
+						<view class="weui-cell__bd">
+              <picker aria-role="combobox" bindchange="bindSchoolChange" range="{{schoolarray}}">
+                <view class="weui-select">{{schoolarray[schoolindex]}}</view>
+              </picker>
+						</view>
+					</view>
+
+          <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+						<view class="weui-cell__hd">
+              <picker mode="multiSelector" aria-role="combobox" bindchange="bindClassChange" bindcolumnchange="bindClassColumnChange" range="{{classarray}}">
+							  <label class="weui-label" style="width: 4em;">班级</label>
+              </picker>
+						</view>
+						<view class="weui-cell__bd">
+              <picker mode="multiSelector" aria-role="combobox" bindchange="bindClassChange" bindcolumnchange="bindClassColumnChange" range="{{classarray}}">
+                <view class="weui-select">{{classarray[0][classindex[0]]}} {{classarray[1][classindex[1]]}}</view>
+              </picker>
+						</view>
+					</view>
+
+          <!-- <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-before">
+						<view class="weui-cell__hd">
+              <view class="weui-select" style="width: 3em;">学科</view>
+						</view>
+						<view class="weui-cell__bd">
+              <text class="weui-input" type="number"> {{partarray[partindex]}} </text>
+						</view>
+					</view> -->
+
+					<!-- <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+						<view class="weui-cell__hd">
+							<label class="weui-label" style="width: 4em;">学科</label>
+						</view>
+
+						<view class="weui-cell__bd">
+              <picker aria-role="combobox" bindchange="bindExamChange" range="{{partarray}}">
+                <view class="weui-select">{{partarray[partindex]}}</view>
+              </picker>
+						</view>
+					</view> -->
+
+          <view wx:if="{{fparents}}" class="weui-cell weui-cell_active weui-cell_select weui-cell_select-before">
+						<view class="weui-cell__hd">
+              <view class="weui-select" style="width: 3em;">姓名</view>
+						</view>
+						<view class="weui-cell__bd">
+              <text class="weui-input" type="number"> {{stuname}} </text>
+						</view>
+					</view>
+
+          <view wx:if="{{fteachers}}" class="weui-cell weui-cell_active weui-cell_select weui-cell_select-before">
+						<view class="weui-cell__hd">
+              <view class="weui-select" style="width: 3em;">姓名</view>
+						</view>
+						<view class="weui-cell__bd">
+							<input class="weui-input" type="text" placeholder="请输入孩子姓名" bindinput="bindStunameInput" value="{{stuname}}"></input>
+						</view>
+					</view>
+
+          <view class="weui-cell__bd">
+            <radio-group bindchange="radioChange">
+              <label class="radio-label"><radio value="1" checked="{{true}}" class="radio-btn"/>按段次生成</label>
+              <label class="radio-label"><radio value="2" class="radio-btn"/>按分数生成</label>
+            </radio-group>
+          </view>
+
+          <text style="color: red;" decode="{{true}}">图示说明：若蓝线在红线以上则代表学生成绩超过了一本线。反之，则说明学生成绩暂时低于一本水平。折线图可以点击查看详情。</text>
+
+          <view class="weui-form__opr-area">
+			      <view class="weui-btn weui-btn_primary" aria-role="button" bindtap="submitdata">查询</view>
+		      </view>
+
+
+          <view class="weui-cell__bd">
+            <!-- <text>孩子成绩展示窗口：</text>     -->
+            <!-- <view class="container"> -->
+            <view class="move-container">
+              <ec-canvas wx:if="{{!isDisposed}}" id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+              <ec-canvas wx:if="{{!isDisposed2}}" id="mychart-dom-bar2" canvas-id="mychart-bar2" ec="{{ ec }}"></ec-canvas>
+              <ec-canvas wx:if="{{!isDisposed3}}" id="mychart-dom-bar3" canvas-id="mychart-bar3" ec="{{ ec }}"></ec-canvas>
+              <ec-canvas wx:if="{{!isDisposed4}}" id="mychart-dom-bar4" canvas-id="mychart-bar4" ec="{{ ec }}"></ec-canvas>
+              <ec-canvas wx:if="{{!isDisposed5}}" id="mychart-dom-bar5" canvas-id="mychart-bar5" ec="{{ ec }}"></ec-canvas>
+              <ec-canvas wx:if="{{!isDisposed6}}" id="mychart-dom-bar6" canvas-id="mychart-bar6" ec="{{ ec }}"></ec-canvas>
+              <ec-canvas wx:if="{{!isDisposed7}}" id="mychart-dom-bar7" canvas-id="mychart-bar7" ec="{{ ec }}"></ec-canvas>
+              <ec-canvas wx:if="{{!isDisposed8}}" id="mychart-dom-bar8" canvas-id="mychart-bar8" ec="{{ ec }}"></ec-canvas>
+              <ec-canvas wx:if="{{!isDisposed9}}" id="mychart-dom-bar9" canvas-id="mychart-bar9" ec="{{ ec }}"></ec-canvas>
+              <ec-canvas wx:if="{{!isDisposed10}}" id="mychart-dom-bar10" canvas-id="mychart-bar10" ec="{{ ec }}"></ec-canvas>
+            </view>    
+
+          </view>
+				</view>
+			</view>
+		<!-- </view> -->
+	<!-- </view> -->
+</view>
+
+
+</block>
+
+<block wx:else>
+<view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
+  <block wx:if="{{fnet}}">
+	<view class="weui-form">
+		<view class="weui-form__control-area">
+			<view class="weui-cells__group weui-cells__group_form">
+				<view class="weui-cells">
+
+          <view class="weui-cell__bd" style="font-size: larger; text-align: center;margin:80rpx" >
+            <text>请先绑定信息:</text>
+          </view>
+          <view class="weui-form__opr-area">
+			      <view class="weui-btn weui-btn_primary" aria-role="button" bindtap="bindinfo">绑定</view>
+		      </view>
+
+				</view>
+			</view>
+		</view>
+	</view>
+  </block>
+
+  <block wx:else>
+	<view  class="weui-form">
+		<view class="weui-form__control-area">
+			<view class="weui-cells__group weui-cells__group_form">
+				<view class="weui-cells">
+
+          <view class="weui-cell__bd" style="font-size: larger; text-align: center;margin:80rpx" >
+            <text>后台服务正在升级，请您稍后在进入</text>
+          </view>
+
+				</view>
+			</view>
+		</view>
+	</view>
+  </block>
+</view>
+</block>

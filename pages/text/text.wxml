@@ -1,0 +1,31 @@
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">搜索选择器</view>
+    <view class="page__desc">weui-search-bar / weui-cells</view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-search-bar" id="searchBar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search" type="search" size="16" color="#999"></icon>
+          <input class="weui-search-bar__input" type="search" placeholder="搜索" value="{{searchValue}}" bindinput="onSearchInputChange" bindconfirm="onSearchConfirm" />
+          <icon class="weui-icon-clear" type="clear" size="16" color="#999" catchtap="onSearchClear"></icon>
+        </view>
+        <view class="weui-search-bar__button" bindtap="onSearchCancel">取消</view>
+      </view>
+      <view class="weui-search-bar__cancel-btn" bindtap="onSearchCancel">取消</view>
+    </view>
+    <view class="weui-cells weui-cells_checkbox">
+      <block wx:for="{{displayList}}" wx:key="*this">
+        <view class="weui-cell">
+          <view class="weui-cell__hd">
+            <checkbox value="{{item.value}}" checked="{{item.checked}}" bindchange="onCheckboxChange"></checkbox>
+          </view>
+          <view class="weui-cell__bd">
+            <view class="weui-cell__title">{{item.label}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

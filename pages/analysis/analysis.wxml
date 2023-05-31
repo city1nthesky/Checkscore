@@ -1,0 +1,172 @@
+<!--pages/analysis/analysis.wxml-->
+
+<page-meta root-font-size="system"/>
+<block wx:if="{{bindflag}}">
+<block wx:if="{{fteaanalysis}}">
+<view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
+  <view class="identity-content">
+    <view class="additional-control">慧学服务</view>
+    <image class="identity-icon" src="../../icons/mine.png" style="width: 25px; height: 25px;"></image>
+    <text class="identity-text">{{identity.text}}</text>  
+  </view>
+			<view class="weui-cells__group weui-cells__group_form">
+				<view class="weui-cells">
+
+					<view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+						<view class="weui-cell__hd">
+              <picker aria-role="combobox" bindchange="bindSchoolChange" range="{{schoolarray}}">
+							  <label class="weui-label" style="width: 4em;">学校</label>
+              </picker>
+						</view>
+						<view class="weui-cell__bd">
+              <picker aria-role="combobox" bindchange="bindSchoolChange" range="{{schoolarray}}">
+                <view class="weui-select">{{schoolarray[schoolindex]}}</view>
+              </picker>
+						</view>
+					</view>
+
+          <view wx:if="{{fparents}}" class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+						<view class="weui-cell__hd">
+              <picker mode="multiSelector" aria-role="combobox" bindchange="bindClassChange" bindcolumnchange="bindClassColumnChange" range="{{classarray}}">
+							  <label class="weui-label" style="width: 4em;">班级</label>
+              </picker>
+						</view>
+
+						<view class="weui-cell__bd">
+              <picker mode="multiSelector" aria-role="combobox" bindchange="bindClassChange" bindcolumnchange="bindClassColumnChange" range="{{classarray}}">
+                <view class="weui-select">{{classarray[0][classindex[0]]}}  {{classarray[1][classindex[1]]}}</view>
+              </picker>
+						</view>
+					</view>
+
+
+          <view wx:if="{{fparents}}" class="weui-cell weui-cell_active weui-cell_select weui-cell_select-before">
+						<view class="weui-cell__hd">
+              <view class="weui-select" style="width: 3em;">姓名</view>
+						</view>
+						<view class="weui-cell__bd">
+              <text class="weui-input" type="text">{{stuname}}</text>
+						</view>
+					</view>
+
+          <view class="weui-form__opr-area">
+			      <view class="weui-btn weui-btn_primary" aria-role="button" bindtap="submitdata">分析</view>
+		      </view>
+
+          <view wx:if="{{fpshow}}" class="container">
+            <view class="header">
+              <view class="title">考试统计</view>
+              <view class="total">到目前为止总共进行{{totalNum}}次考试</view>
+            </view>
+            <view class="subject">
+              <view class="subject-header">
+                <view class="subject-name">科目</view>
+                <view class="subject-data">一本进线次数</view>
+                <view class="subject-data">一本进线率</view>
+              </view>
+              <view class="subject-item" wx:for="{{allsubjects}}" wx:key="name">
+                <view class="subject-name">{{item.name}}</view>
+                <view class="subject-data">{{item.passNum}}</view>
+                <view class="subject-data" style="color: {{item.passRate < 60 ? 'red' : item.passRate < 80 ? 'orange' : ''}}">{{item.passRate}}%</view>
+              </view>
+            </view>
+            <view class="summary">
+              <view class="summary-item">
+                <view class="summary-label">总体进线次数</view>
+                <view class="summary-value">{{passNum}}</view>
+              </view>
+            <view class="summary-item">
+              <view class="summary-label">总体进线率</view>
+              <view class="summary-value" style="color: {{passRate < 60 ? 'red' : passRate < 80 ? 'orange' : ''}}">{{passRate}}%</view>
+            </view>
+          </view>
+          <view class="note" style="color: blueviolet;">说明：合格率低于60%为红色，在60%到80%之间为橙色。</view>
+
+          <view class="header">
+              <view class="title">本次考试</view>
+              <view class="total">{{thisExam}}</view>
+          </view>
+
+          <view class="table">
+            <view class="table-header">
+              <view class="table-item">科目</view>
+              <view class="table-item">进退班次</view>
+              <view class="table-item">进退段次</view>
+              <view class="table-item">是否过线</view>
+            </view>
+            <view class="table-body" wx:for="{{thisExamData}}" wx:key="index">
+              <view class="table-row">
+                <view class="table-item">{{item.name}}</view>
+                <view class="table-item" style="color: {{item.riseNumB < 0 ? 'red' : 'green'}}">{{item.riseNumB < 0 ? item.riseNumB : item.riseNumB}}</view>
+                <view class="table-item" style="color: {{item.riseNumD < 0 ? 'red' : 'green'}}">{{item.riseNumD < 0 ? item.riseNumD : item.riseNumD}}</view>
+                <view class="table-item" style="color: {{item.passflag == true ? 'green' : 'red'}}">{{item.passflag == true ? '√' : '×'}}</view>
+              </view>
+            </view>
+          </view>
+          <view class="note" style="color: blueviolet;">说明：红色表明较上次考试退步的名次，绿色表明较上次进步的名次。</view>
+        </view>
+
+        <view class="move-container">
+          <ec-canvas id="mychart-dom-graph" canvas-id="mychart-graph" ec="{{ ec }}"></ec-canvas>
+        </view>
+        <view wx:if="{{fpshow}}" class="note" style="color: rgb(226, 43, 217);">综合分析：{{resultanalysis}}。</view>
+          
+
+				</view>
+			</view>
+</view>
+</block>
+
+<block wx:else>
+  <div class="button-wrapper">
+    <button class="button" bindtap="studentgogogo">学生分析</button>
+  <button class="button" bindtap="classgogogo">班级分析</button>
+  <button class="button" bindtap="gradegogogo">年级分析</button>
+</div>
+</block>
+</block>
+
+<block wx:else>
+<view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
+  <block wx:if="{{fnet}}">
+	<view  class="weui-form">
+		<view class="weui-form__control-area">
+			<view class="weui-cells__group weui-cells__group_form">
+				<view class="weui-cells">
+
+          <view class="weui-cell__bd" style="font-size: larger; text-align: center;margin:80rpx" >
+            <text>请先绑定信息:</text>
+          </view>
+          <view class="weui-form__opr-area">
+			      <view class="weui-btn weui-btn_primary" aria-role="button" bindtap="bindinfo">绑定</view>
+		      </view>
+
+				</view>
+			</view>
+		</view>
+	</view>
+  </block>
+
+  <block wx:else>
+	<view  class="weui-form">
+		<view class="weui-form__control-area">
+			<view class="weui-cells__group weui-cells__group_form">
+				<view class="weui-cells">
+
+          <view class="weui-cell__bd" style="font-size: larger; text-align: center;margin:80rpx" >
+            <text>后台服务正在升级，请您稍后在进入</text>
+          </view>
+
+				</view>
+			</view>
+		</view>
+	</view>
+  </block>
+
+</view>
+</block>
+
+
+
+
+

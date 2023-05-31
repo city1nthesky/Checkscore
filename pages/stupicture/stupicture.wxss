@@ -1,0 +1,161 @@
+/* pages/stupicture/stupicture.wxss */
+.page-section{
+  display: flex;
+  flex-direction: row;
+}
+
+.text-center{
+  text-align: center;
+}
+
+ec-canvas {
+  position: absolute;
+  top: 200%;
+  width: 100%;
+  height: 50%;
+}
+
+.move-container {
+  width: 100%;
+  min-height: 2600px;
+}
+
+#mychart-dom-move-bar {
+  width: 70%;
+  height: 300px;
+  margin: 20px 15%;
+  border: 1px solid red;
+  display: block;
+}
+
+#mychart-dom-bar {
+  position: absolute;
+  top: 13.5%;
+  width: 86%;
+  height: 10%;
+  /* margin: 10px 5%;
+  border: 1px solid red; */
+}
+
+#mychart-dom-bar2 {
+  position: absolute;
+  top: 22.5%;
+  width: 86%;
+  height: 10%;
+  /* margin: 10px 5%;
+  border: 1px solid red; */
+}
+
+#mychart-dom-bar3 {
+  position: absolute;
+  top: 31%;
+  width: 86%;
+  height: 10%;
+  /* margin: 10px 5%;
+  border: 1px solid red; */
+}
+
+#mychart-dom-bar4 {
+  position: absolute;
+  top: 40%;
+  width: 86%;
+  height: 10%;
+  /* margin: 10px 5%;
+  border: 1px solid red; */
+}
+
+#mychart-dom-bar5 {
+  position: absolute;
+  top: 49%;
+  width: 86%;
+  height: 10%;
+  /* margin: 10px 5%;
+  border: 1px solid red; */
+}
+
+#mychart-dom-bar6 {
+  position: absolute;
+  top: 58%;
+  width: 86%;
+  height: 10%;
+  /* margin: 10px 5%;
+  border: 1px solid red; */
+}
+
+#mychart-dom-bar7 {
+  position: absolute;
+  top: 67%;
+  width: 86%;
+  height: 10%;
+  /* margin: 10px 5%;
+  border: 1px solid red; */
+}
+
+#mychart-dom-bar8 {
+  position: absolute;
+  top: 75.5%;
+  width: 86%;
+  height: 10%;
+  /* margin: 10px 5%;
+  border: 1px solid red; */
+}
+
+#mychart-dom-bar9 {
+  position: absolute;
+  top: 84.5%;
+  width: 86%;
+  height: 10%;
+  /* margin: 10px 5%;
+  border: 1px solid red; */
+}
+
+#mychart-dom-bar10 {
+  position: absolute;
+  top: 93.5%;
+  width: 86%;
+  height: 10%;
+  /* margin: 10px 5%;
+  border: 1px solid red; */
+}
+
+
+
+.radio-btn {
+  margin-right: 0px; /* 设置每个单选框之间的右边距 */
+  margin-left: 10px; /* 设置每个单选框之间的右边距 */
+  margin-bottom: 20px; /* 设置每个单选框之间的右边距 */
+  vertical-align: middle; /* 设置单选框和文本垂直居中 */
+}
+
+
+
+.identity-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #f0f0f0; /* 设置为红色背景 */
+  border: none;
+  padding: 0;
+  margin-bottom: -23px;
+}
+
+.identity-icon {
+  width: 20px;
+  height: 10px;
+  margin-right: 5px;  /*Add a margin to separate the image and text*/
+  border: none;
+  padding: 0;
+}
+
+.identity-text {
+  font-size: 12px;
+  border: none;
+  padding: 0;
+}
+
+.additional-control {
+  width: 150px;
+  font-size: 12px;
+  border: none;
+  padding: 0;
+}

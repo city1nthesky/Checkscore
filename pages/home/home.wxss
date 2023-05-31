@@ -1,0 +1,87 @@
+/* pages/home/home.wxss */
+.row-style{
+  display: flex;
+
+  flex-direction: row;
+
+}
+
+.su-table-box {
+  height: 100%;
+  overflow-x: auto;
+  padding-bottom: 40rpx;
+}
+
+.su-table {
+  margin: 0 auto;
+  display: table;
+  border-collapse: collapse;
+  overflow-x: auto;
+  word-break: keep-all;
+  white-space: nowrap;
+  background-color: #FFFFFF;
+  width: 90%;
+  border-radius: 20rpx;
+}
+
+.su-tr {
+  display: table-row;
+}
+
+.su-th {
+  display: table-cell;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border: 1rpx solid #DDDDDD;
+  border-right: none;
+  border-bottom: none;
+  background-color: #87CEFA;
+  color: #FFFFFF;
+}
+
+.su-td {
+  padding: 0rpx 30rpx;
+  display: table-cell;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border: 1rpx solid #DDDDDD;
+  border-right: none;
+}
+
+.picker-header-item:first-child {
+  color: red;
+}
+
+
+.identity-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #f0f0f0; /* 设置为红色背景 */
+  border: none;
+  padding: 0;
+  margin-bottom: -23px;
+}
+
+.identity-icon {
+  width: 20px;
+  height: 10px;
+  margin-right: 5px;  /*Add a margin to separate the image and text*/
+  border: none;
+  padding: 0;
+}
+
+.identity-text {
+  font-size: 12px;
+  border: none;
+  padding: 0;
+}
+
+.additional-control {
+  width: 150px;
+  font-size: 12px;
+  border: none;
+  padding: 0;
+}

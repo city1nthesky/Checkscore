@@ -1,0 +1,62 @@
+<!--pages/bindinfo/bindinfo.wxml-->
+<page-meta root-font-size="system"/>
+<view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
+	<view class="weui-form">
+		<view class="weui-form__control-area">
+			<view class="weui-cells__group weui-cells__group_form">
+				<view class="weui-cells">
+
+          <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+						<view class="weui-cell__hd">
+							<label class="weui-label" style="width: 4em;">学校</label>
+						</view>
+						<view class="weui-cell__bd">
+              <picker aria-role="combobox" bindchange="bindSchoolChange" range="{{schoolarray}}">
+                <view class="weui-select">{{schoolarray[schoolindex]}}</view>
+              </picker>
+						</view>
+					</view>
+
+          <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+						<view class="weui-cell__hd">
+							<label class="weui-label" style="width: 4em;">年级</label>
+						</view>
+						<view class="weui-cell__bd">
+              <picker aria-role="combobox" bindchange="bindGradeChange" range="{{gradearray}}">
+                <view class="weui-select">{{gradearray[gradeindex]}}</view>
+              </picker>
+						</view>
+					</view>
+
+          <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-before">
+						<view class="weui-cell__hd">
+              <view class="weui-select" style="width: 4em;">手机号</view>
+						</view>
+						<view class="weui-cell__bd">
+							<input class="weui-input" type="number" placeholder="请输入手机号" bindinput="bindPhoneInput"></input>
+						</view>
+					</view>
+
+          <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-before">
+						<view class="weui-cell__hd">
+              <view class="weui-select" style="width: 3em;">姓名</view>
+						</view>
+						<view class="weui-cell__bd">
+							<input class="weui-input" type="text" placeholder="请输入孩子姓名" bindinput="bindStunameInput"></input>
+						</view>
+					</view>
+
+          <view class="weui-form__opr-area">
+			      <view class="weui-btn weui-btn_primary" aria-role="button" bindtap="tapLogin">绑定</view>
+		      </view>
+
+          <view class="weui-form__tips-area">
+            <text style="color: red;" decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;家长您好，绑定只用于识别身份，为保护学生隐私，家长绑定后只能查看自己孩子的成绩，本应用严格遵守相关法律规定。如有问题或者诉求可通过《我的》→《反馈》留言，谢谢！</text>
+          </view>
+
+
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

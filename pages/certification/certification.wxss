@@ -1,0 +1,11 @@
+/* pages/certification/certification.wxss */
+.text-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.myspace{
+  width: 100%;
+  height: 50rpx;
+}

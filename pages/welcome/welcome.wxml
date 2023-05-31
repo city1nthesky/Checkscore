@@ -1,0 +1,18 @@
+<!--pages/welcome.wxml-->
+<view  class="weui-form">
+		<view class="weui-form__control-area">
+			<view class="weui-cells__group weui-cells__group_form">
+				<view class="weui-cells">
+
+          <view class="weui-cell__bd" style="font-size: larger; text-align: center;margin:80rpx" >
+            <view><text class="text">欢迎使用慧学服务</text></view>
+            <view><text class="text">打造教育数字化平台</text></view>
+          </view>
+          <view class="weui-form__opr-area">
+			      <view class="weui-btn weui-btn_primary" aria-role="button" bindtap="gogogo">进入</view>
+		      </view>
+
+				</view>
+			</view>
+		</view>
+	</view>

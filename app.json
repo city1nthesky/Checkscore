@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/start/start",
+    "pages/home/home",
+    "pages/stupicture/stupicture",
+    "pages/myinfo/myinfo",
+    "pages/bindinfo/bindinfo",
+    "pages/feedback/feedback",
+    "pages/certification/certification",
+    "pages/rolecer/rolecer",
+    "pages/analysis/analysis",
+    "pages/welcome/welcome",
+    "pages/text/text",
+    "pages/teacheranalysis/teacheranalysis"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "成绩查询",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "text": "成绩",
+        "pagePath": "pages/home/home",
+        "iconPath": "icons/score.png",
+        "selectedIconPath": "icons/score_selected.png"
+      },
+      {
+        "text": "进退步",
+        "pagePath": "pages/stupicture/stupicture",
+        "iconPath": "icons/Linechart.png",
+        "selectedIconPath": "icons/Linechart_selected.png"
+      },
+      {
+        "text": "分析",
+        "pagePath": "pages/analysis/analysis",
+        "iconPath": "icons/analysis.png",
+        "selectedIconPath": "icons/analysis_selected.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/myinfo/myinfo",
+        "iconPath": "icons/mine.png",
+        "selectedIconPath": "icons/mine_selected.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

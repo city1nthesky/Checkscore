@@ -1,0 +1,14 @@
+<!--pages/start/start.wxml-->
+<view  class="weui-form">
+		<view class="weui-form__control-area">
+			<view class="weui-cells__group weui-cells__group_form">
+				<view class="weui-cells">
+
+          <view class="weui-cell__bd" style="font-size: larger; text-align: center;margin:80rpx" >
+            <text>正在初始化，请稍后...</text>
+          </view>
+
+				</view>
+			</view>
+		</view>
+	</view>

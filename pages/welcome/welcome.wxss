@@ -1,0 +1,6 @@
+/* pages/welcome.wxss */
+.text {
+  font-size: 55rpx;
+  font-weight: bold;
+  margin-left: 10rpx;
+}

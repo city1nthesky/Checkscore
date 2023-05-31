@@ -1,0 +1,39 @@
+<!--pages/certification/certification.wxml-->
+
+<page-meta root-font-size="system"/>
+<view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
+  <view class="weui-form">
+		<view class="weui-form__control-area">
+			<view class="weui-cells__group weui-cells__group_form">
+				<view class="weui-cells">
+
+          <view aria-labelledby="js_a11y_nt js_a11y_comma js_a11y_nb" class="weui-cell weui-cell_active weui-cell_access" aria-role="link">
+				    <text class="weui-cell__bd" aria-hidden="true" bindtap="cerparents">
+              <text class="text-center">家长绑定</text>
+					    <!-- <text id="js_a11y_nt" class="demo_badge_title">绑定</text> -->
+					    <!-- <text id="js_a11y_nb" class="weui-badge">New</text> -->
+				    </text>
+				  <text class="weui-cell__ft" aria-hidden="true"></text>
+			    </view>
+
+          <view aria-labelledby="js_a11y_nt js_a11y_comma js_a11y_nb" class="weui-cell weui-cell_active weui-cell_access myspace" aria-role="link">
+			    </view>
+
+          <!-- <view class="myspace"></view> -->
+
+			    <view aria-labelledby="js_a11y_nt js_a11y_comma js_a11y_nb" class="weui-cell weui-cell_active weui-cell_access" aria-role="link">
+				    <text class="weui-cell__bd" aria-hidden="true" bindtap="certeachers">
+              <text class="text-center">教师绑定</text>
+					    <!-- <text id="js_a11y_nt" class="demo_badge_title">绑定</text> -->
+					    <!-- <text id="js_a11y_nb" class="weui-badge">New</text> -->
+				    </text>
+				    <text class="weui-cell__ft" aria-hidden="true"></text>
+			    </view>
+
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+

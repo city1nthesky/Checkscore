@@ -1,0 +1,127 @@
+<!--pages/myinfo/myinfo.wxml-->
+
+<page-meta root-font-size="system"/>
+
+<view class="page" data-weui-theme="{{theme}}" data-weui-mode="{{mode}}">
+  <block wx:if="{{fnet}}">
+  <view class="page__bd">
+    <view class="identity-content">
+    <view class="additional-control">慧学服务</view>
+    <image class="identity-icon" src="../../icons/mine.png" style="width: 25px; height: 25px;"></image>
+    <text class="identity-text">{{identity.text}}</text>  
+  </view>
+		<view class="weui-cells demo_badge_cells">
+
+
+			<!-- <view aria-labelledby="b2_n1" aria-describedby="b2_txt2" class="weui-cell weui-cell_active weui-cell_access" aria-role="link">
+				<text class="weui-cell__bd" aria-hidden="true">
+					<text class="demo_badge_title" id="b2_n1">单行列表</text>
+					<text class="weui-badge" id="b2_txt2" aria-label="，8个新通知">8</text>
+				</text>
+				<text class="weui-cell__ft" aria-hidden="true"></text>
+			</view>
+			<view aria-labelledby="b3_n1 b3_n2" aria-describedby="b3_txt1 b3_txt1_note" class="weui-cell weui-cell_active weui-cell_access" aria-role="link">
+				<text class="weui-cell__bd" aria-hidden="true">
+					<text class="demo_badge_title" id="b3_n1">单行列表</text>
+					<text class="weui-badge" id="b3_txt1" aria-label>8</text>
+					<text id="b3_txt1_note" class="weui-hidden_abs">个新通知，</text>
+				</text>
+				<text class="weui-cell__ft" aria-hidden="true" id="b3_n2">详细信息</text>
+			</view> -->
+
+
+			<view aria-labelledby="js_a11y_nt js_a11y_comma js_a11y_nb" class="weui-cell weui-cell_active weui-cell_access" aria-role="link">
+				<text class="weui-cell__bd" aria-hidden="true" bindtap="bindinfo">
+          <text class="text-center">绑定</text>
+					<!-- <text id="js_a11y_nt" class="demo_badge_title">绑定</text> -->
+					<!-- <text id="js_a11y_nb" class="weui-badge">New</text> -->
+				</text>
+				<text class="weui-cell__ft" aria-hidden="true"></text>
+			</view>
+
+      <!-- <view aria-labelledby="js_a11y_nt js_a11y_comma js_a11y_nb" class="weui-cell weui-cell_active weui-cell_access" aria-role="link">
+				<text class="weui-cell__bd" aria-hidden="true" bindtap="pay">
+          <text class="text-center">充值</text> -->
+					<!-- <text id="js_a11y_nt" class="demo_badge_title">充值</text> -->
+					<!-- <text id="js_a11y_nb" class="weui-badge">New</text> -->
+				<!-- </text>
+				<text class="weui-cell__ft" aria-hidden="true"></text>
+			</view> -->
+
+      <view aria-labelledby="js_a11y_nt js_a11y_comma js_a11y_nb" class="weui-cell weui-cell_active weui-cell_access" aria-role="link">
+				<text class="weui-cell__bd" aria-hidden="true" bindtap="unbind1">
+          <text class="text-center">解除绑定</text>
+					<!-- <text id="js_a11y_nt" class="demo_badge_title">绑定</text> -->
+					<!-- <text id="js_a11y_nb" class="weui-badge">New</text> -->
+				</text>
+				<text class="weui-cell__ft" aria-hidden="true"></text>
+			</view>
+
+      <view aria-role="dialog" aria-modal="true" class="fadeIn" wx:if="{{unbindflag}}">
+        <view class="weui-mask"></view>
+        <view class="weui-dialog">
+            <view class="weui-dialog__hd"><strong class="weui-dialog__title">解除绑定</strong></view>
+            <view class="weui-dialog__bd">您今年还有{{unbindcount}}次解除绑定的机会，确定要解除绑定吗</view>
+            <view class="weui-dialog__ft">
+                <view aria-role="button" class="weui-dialog__btn weui-dialog__btn_default" bindtap="close">退出</view>
+                <view aria-role="button" class="weui-dialog__btn weui-dialog__btn_primary" bindtap="unbind2">确定</view>
+            </view>
+        </view>
+    </view>
+
+      <view aria-labelledby="js_a11y_nt js_a11y_comma js_a11y_nb" class="weui-cell weui-cell_active weui-cell_access" aria-role="link">
+				<text class="weui-cell__bd" aria-hidden="true" bindtap="feedback">
+          <text class="text-center">反馈</text>
+					<!-- <text id="js_a11y_nt" class="demo_badge_title" >反馈</text> -->
+					<!-- <text id="js_a11y_nb" class="weui-badge">New</text> -->
+				</text>
+				<text class="weui-cell__ft" aria-hidden="true"></text>
+			</view>
+
+      <!-- <view aria-labelledby="js_a11y_nt js_a11y_comma js_a11y_nb" class="weui-cell weui-cell_active weui-cell_access" aria-role="link">
+				<text class="weui-cell__bd" aria-hidden="true" bindtap="subscribe">
+          <text class="text-center">订阅</text> -->
+					<!-- <text id="js_a11y_nt" class="demo_badge_title" >反馈</text> -->
+					<!-- <text id="js_a11y_nb" class="weui-badge">New</text> -->
+				<!-- </text>
+				<text class="weui-cell__ft" aria-hidden="true"></text>
+			</view> -->
+
+      <!-- <view aria-labelledby="js_a11y_nt js_a11y_comma js_a11y_nb" class="weui-cell weui-cell_active weui-cell_access" aria-role="link">
+				<text class="weui-cell__bd" aria-hidden="true" bindtap="copyright">
+          <text class="text-center">版权声明</text>
+				</text>
+				<text class="weui-cell__ft" aria-hidden="true"></text>
+			</view> -->
+
+      <!-- <view aria-labelledby="js_a11y_nt js_a11y_comma js_a11y_nb" class="weui-cell weui-cell_active weui-cell_access" aria-role="link">
+				<text class="weui-cell__bd" aria-hidden="true" bindtap="contactus">
+          <text class="text-center">联系我们</text>
+				</text>
+				<text class="weui-cell__ft" aria-hidden="true"></text>
+			</view> -->
+
+
+		</view>
+	</view>
+  </block>
+
+
+  <block wx:else>
+  <view  class="weui-form">
+		<view class="weui-form__control-area">
+			<view class="weui-cells__group weui-cells__group_form">
+				<view class="weui-cells">
+
+          <view class="weui-cell__bd" style="font-size: larger; text-align: center;margin:80rpx" >
+            <text>后台服务正在升级，请您稍后在进入</text>
+          </view>
+
+				</view>
+			</view>
+		</view>
+	</view>
+  </block>
+</view>
+
+
